@@ -1,6 +1,7 @@
 import React from 'react';
 
 const RaasInfoPage = () => {
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans text-right overflow-hidden" dir="rtl">
       
@@ -24,7 +25,7 @@ const RaasInfoPage = () => {
           </p>
           
           <a 
-            href="https://wa.me/972506400922?text=היי יניב, הגעתי מדף ה-RaaS ואשמח לקבוע שיחת ייעוץ קצרה" 
+            href="https://wa.me/{9725364769}?text=היי יניב, הגעתי מדף ה-RaaS ואשמח לקבוע שיחת ייעוץ קצרה" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-10 rounded-full shadow-[0_0_40px_-10px_rgba(37,99,235,0.6)] transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
