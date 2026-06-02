@@ -1,12 +1,21 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
 
 const RaasInfoPage = () => {
+  
   const { t, i18n } = useTranslation();
   
   // שואב את השפה הנוכחית בבטחה (נופל לעברית אם משהו משתבש)
   const currentLang = i18n.resolvedLanguage || i18n.language || 'he';
 
+  const [copied, setCopied] = useState(false);
+  
+  const copyEmail = () => {
+    navigator.clipboard.writeText('yaniv@yygis.online');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000); // מחזיר את הכפתור למצב רגיל אחרי 2 שניות
+  };
   return (
     <div className={`min-h-screen bg-slate-50 text-slate-800 font-sans overflow-hidden ${currentLang === 'he' ? 'text-right' : 'text-left'}`} dir={currentLang === 'he' ? 'rtl' : 'ltr'}>
       
@@ -128,18 +137,26 @@ const RaasInfoPage = () => {
           
           <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12" dir="ltr">
             
-            {/* Email Link */}
-            <a 
-              href="mailto:yaniv@yygis.com" 
-              className="flex items-center gap-3 text-slate-400 hover:text-white transition-all duration-300 group"
+{/* Email - Click to Copy */}
+            <button 
+              onClick={copyEmail}
+              className="flex items-center gap-3 text-slate-400 hover:text-white transition-all duration-300 group cursor-pointer"
             >
-              <div className="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center group-hover:bg-blue-600 transition-colors">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
+              <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-300 ${copied ? 'bg-green-600' : 'bg-slate-800 group-hover:bg-blue-600'}`}>
+                {copied ? (
+                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                  </svg>
+                ) : (
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                )}
               </div>
-              <span className="font-medium text-lg tracking-wide">yaniv@yygis.online</span>
-            </a>
+              <span className="font-medium text-lg tracking-wide">
+                {copied ? (currentLang === 'he' ? 'הועתק!' : currentLang === 'es' ? '¡Copiado!' : 'Copied!') : 'yaniv@yygis.com'}
+              </span>
+            </button>
 
             {/* LinkedIn Link */}
             <a 
