@@ -1,0 +1,24 @@
+/* ייבוא גופן Assistant מגוגל פונטס - גופן נקי וקריא שמתאים למערכות טכנולוגיות */
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap');
+
+/* טעינת הספריות של Tailwind */
+
+@import "tailwindcss";
+
+@layer base {
+  html {
+    direction: rtl; 
+  }
+  body {
+    background-color: #f8fafc;
+  }
+}
+/* 
+  אם תרצה להוסיף אנימציות מותאמות אישית שלא קיימות ב-Tailwind, 
+  אפשר להוסיף אותן כאן 
+*/
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
