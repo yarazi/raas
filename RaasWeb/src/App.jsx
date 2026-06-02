@@ -7,10 +7,13 @@ import RaasInfoPage from './components/RaasInfoPage/RaasInfoPage'
 
 function App() {
 
+  
+  const phonenumber = import.meta.env.VITE_SUPPORT_PHONE;
+  const message = import.meta.env.VITE_QUICK_LINK_MESSAGE;
 
   return (
     <>
-    <RaasInfoPage />
+    <RaasInfoPage phonenumber={phonenumber} message={message} />
     </>
   )
 }
