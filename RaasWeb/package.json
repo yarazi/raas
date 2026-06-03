@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@fontsource/noto-sans-hebrew": "^5.2.8",
+    "@vercel/analytics": "^2.0.1",
     "i18next": "^26.3.0",
     "i18next-browser-languagedetector": "^8.2.1",
     "react": "^19.2.6",
