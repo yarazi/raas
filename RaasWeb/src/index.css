@@ -1,9 +1,14 @@
 /* ייבוא גופן Assistant מגוגל פונטס - גופן נקי וקריא שמתאים למערכות טכנולוגיות */
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap');
 
-/* טעינת הספריות של Tailwind */
-
 @import "tailwindcss";
+/* 1. You MUST import the font, otherwise the browser has nothing to render */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@300;400;500;700;900&display=swap');
+
+@theme {
+  /* 2. Wrap multi-word font names in quotes, and separate fallbacks with commas */
+  --font-sans: "Noto Sans Hebrew", Helvetica, Arial, Lucida, sans-serif;
+}
 
 @layer base {
   html {
@@ -22,3 +27,4 @@
     text-wrap: balance;
   }
 }
+
